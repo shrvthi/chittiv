@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I Miss You, Chittilu 🥺</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+    body {
+      background-image: url('https://i.pinimg.com/originals/b3/45/1e/b3451e90cde21242f3f37932ee1e7c9b.gif'); /* Sad cat gif */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 100vh;
+      text-align: center;
+      color: #ff5c8a;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: all 2s ease;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px #fff;
+    }
+
+    #kissButton {
+      padding: 15px 25px;
+      background-color: #ffb6c1;
+      color: #fff;
+      font-size: 18px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    #kissButton:hover {
+      background-color: #ff69b4;
+    }
+
+    #scene {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    #kissImage {
+      width: 250px;
+      border-radius: 10px;
+      animation: kiss 2s ease forwards;
+    }
+
+    @keyframes kiss {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://emojicdn.elk.sh/❤️') no-repeat center/contain;
+      animation: floatHearts 4s infinite;
+    }
+
+    @keyframes floatHearts {
+      0% {
+        bottom: 0;
+        opacity: 1;
+      }
+      100% {
+        bottom: 100%;
+        transform: translateX(-50px);
+        opacity: 0;
+      }
+    }
+
+    #message {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ff3366;
+      text-shadow: 1px 1px white;
+    }
+  </style>
+</head>
+<body>
+  <div id="start">
+    <h1>I miss you, Chittilu 😭😭🥺🥺</h1>
+    <button id="kissButton">Kiss Back 💋</button>
+  </div>
+
+  <div id="scene">
+    <img id="kissImage" src="https://i.pinimg.com/originals/84/56/ba/8456ba0ff13ed8cc958c2f3346d090f0.gif" alt="Kiss scene">
+    <div id="message">Yayyy I love you Chitti 💖</div>
+    <div class="hearts" id="heartsContainer"></div>
+  </div>
+
+  <script>
+    const kissButton = document.getElementById("kissButton");
+    const start = document.getElementById("start");
+    const scene = document.getElementById("scene");
+    const body = document.body;
+    const heartsContainer = document.getElementById("heartsContainer");
+
+    kissButton.addEventListener("click", () => {
+      start.style.display = "none";
+      scene.style.display = "flex";
+      body.style.backgroundImage = "url('https://i.pinimg.com/originals/b4/fd/e4/b4fde44a2eb479e7645795e5ee491cbb.gif')";
+
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = 2 + Math.random() * 3 + "s";
+        heartsContainer.appendChild(heart);
+      }
+    });
+  </script>
+</body>
+</html>
